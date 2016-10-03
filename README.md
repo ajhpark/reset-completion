@@ -1,0 +1,2 @@
+### Reset Completion Block
+This plugin may be used if you require a retake of a course from students for recertification periodically. Students can simply go back into the course, reset their completion, and retake the course from scratch. To install, clone this repo into the `moodle_dir/blocks/` directory, then log into your Moodle admin account, go to Site Administration -> Notification and follow instructions to update your Moodle.
