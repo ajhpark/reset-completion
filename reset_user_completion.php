@@ -10,10 +10,8 @@
 /*
     $conn = mysql_connect($CFG->dbhost, $CFG->dbuser, $CFG->dbpass)
         or die("Unable to connect to MySQL");
-    
     $selected = mysql_select_db($CFG->dbname, $conn) 
-        or die("Could not select Moodle db");
-    
+        or die("Could not select Moodle db"); 
     if ($courseid && $user) {
         mysql_query('DELETE FROM mdl_course_modules_completion WHERE userid=' . $user . ' AND coursemoduleid IN (SELECT id FROM mdl_course_modules WHERE course=' . $courseid . ')');
         mysql_query('DELETE FROM mdl_course_completions WHERE userid=' . $user . ' AND course=' . $courseid);
@@ -30,7 +28,9 @@
                 array($courseid, $user));
         $DB->delete_records('course_completions', array('course' => $courseid, 'userid' => $user));
         $DB->delete_records('course_completion_crit_compl', array('course' => $courseid, 'userid' => $user));
-        
+        $DB->delete_records_select('scorm_scoes_track',
+                'scormid IN (SELECT id FROM mdl_scorm WHERE course=?) AND userid=?',
+                array($courseid, $user));
         $orphanedattempts = $DB->get_records_sql_menu("
             SELECT id, uniqueid
               FROM {quiz_attempts}
