@@ -43,21 +43,23 @@ class block_resetcompletion extends block_base {
 
         // Check this user is enroled
         if (!$info->is_tracked_user($USER->id)) {
-            $this->content->text = 'You are not enrolled';
+            $this->content->text = get_string('unenrolled', 'block_resetcompletion');
             return $this->content;
         }
 
         // Is course complete?
         if ($info->is_course_complete($USER->id)) {
-            $this->content->text = 'Click the link below to reset your completion data for this course. <br/><br/>WARNING: It will delete your completion data as well as any module data for this course. Only use this if you require recertification, or if you wish to completely retake the course from scratch.';
+            $this->content->text = get_string('resetcontenttext', 'block_resetcompletion');
             $this->content->footer = 
-                '<br><a href="../blocks/resetcompletion/reset_user_completion.php?course=' . $this->page->course->id . '&sesskey=' . sesskey() . '">';
-            $this->content->footer .= 'Reset Completion' . '</a>';
+                '<br/><a href="../blocks/resetcompletion/reset_user_completion.php?course=' . 
+                $this->page->course->id . 
+                '&sesskey=' . sesskey();
+            $this->content->footer .= '">' . get_string('pluginname', 'block_resetcompletion')  . '</a>';
             return $this->content;
         } 
 
         else {
-            $this->content->text = 'You have not completed the course yet';
+            $this->content->text = get_string('resetincompletetext', 'block_resetcompletion');
             return $this->content;
         }
 

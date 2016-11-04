@@ -27,3 +27,6 @@ $string['resetcompletion:addinstance'] = 'Add a new reset completion block';
 $string['resetcompletion:myaddinstance'] = 'Add a new reset completion block to the My Moodle page';
 $string['resetconfirm'] = 'Reset course completion';
 $string['resetdescription'] = 'Reset all course completion data, including module data such as previous quiz attempts';
+$string['resetcontenttext'] = 'Click the link below to reset your completion data for this course. <br/><br/>WARNING: It will reset your completion data as well as any module data for this course. Only use this if you require recertification, or if you wish to completely retake the course from scratch.<br/>';
+$string['resetincompletetext'] = 'You have not completed the course yet';
+$string['unenrolled'] = 'You are not enrolled in this course';

@@ -73,6 +73,10 @@
         } else if (!$completion->is_tracked_user($user)) {
             throw new moodle_exception('nottracked', 'completion');
         }
+        if (!$completion->is_course_complete($user)) {
+            print_error(get_string('resetincompletetext', 'block_resetcompletion'));
+            exit;           
+        }
         $strconfirm = get_string('resetconfirm', 'block_resetcompletion');
         $PAGE->set_title($strconfirm);
         $PAGE->set_heading($course->fullname);
