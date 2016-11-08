@@ -13,7 +13,7 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
- 
+
 /**
  * This file specifies version
  *
@@ -22,6 +22,11 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$plugin->component = 'block_resetcompletion';  // Recommended since 2.0.2 (MDL-26035). Required since 3.0 (MDL-48494)
+$plugin->component = 'block_resetcompletion';  // Recommended since 2.0.2 (MDL-26035). Required since 3.0 (MDL-48494).
 $plugin->version = 2016110302;  // YYYYMMDDHH (year, month, day, 24-hr time)
 $plugin->requires = 2013111800; // YYYYMMDDHH (This is the release version for Moodle 2.6)
+$plugin->dependencies = array(
+    'mod_quiz' => ANY_VERSION,
+    'mod_choice' => ANY_VERSION,
+    'mod_scorm' => ANY_VERSION,
+);
