@@ -21,8 +21,10 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir.'/completionlib.php');
+
 class block_resetcompletion extends block_base {
     public function init() {
         $this->title = get_string('resetcompletion', 'block_resetcompletion');
@@ -30,8 +32,8 @@ class block_resetcompletion extends block_base {
     public function get_content() {
         global $CFG, $USER;
 
-        if ($this->content !== NULL) {
-          return $this->content;
+        if ($this->content !== null) {
+            return $this->content;
         }
 
         $this->content = new stdClass;
