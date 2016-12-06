@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'block_resetcompletion'; // Recommended since 2.0.2 (MDL-26035). Required since 3.0 (MDL-48494).
-$plugin->version = 2016110900; // YYYYMMDDHH.
+$plugin->version = 2016120100; // YYYYMMDDHH.
 $plugin->requires = 2015051100;
 $plugin->dependencies = array(
     'mod_quiz' => ANY_VERSION,
